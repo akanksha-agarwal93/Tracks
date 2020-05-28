@@ -1,9 +1,12 @@
-import React, { useLayoutEffect, useState, useContext } from "react";
+import React, { useState, useContext } from "react";
 import { View, StyleSheet, TouchableOpacity } from "react-native";
 import { Input, Text, Button } from "react-native-elements";
+import { CommonActions } from '@react-navigation/native';
 
 import Spacer from "../components/Spacer";
 import { Context as AuthContext } from "../context/AuthContext";
+import { BottomTabScreen } from "../../Routes"
+
 
 const SignupScreen = ({ navigation }) => {
   React.useLayoutEffect(() => {
@@ -18,7 +21,6 @@ const SignupScreen = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  console.log(state);
 
   return (
     <View style={styles.container}>
@@ -51,7 +53,9 @@ const SignupScreen = ({ navigation }) => {
           }}
         />
       </Spacer>
-          <TouchableOpacity  onPress = {() => navigation.navigate('Signin')}>
+          <TouchableOpacity  onPress = {() => 
+          navigation.navigate('BottomStack', { screen: 'Track' })
+          }>
           <Text>Already have an account? Sign in instead</Text>
           </TouchableOpacity>
     </View>

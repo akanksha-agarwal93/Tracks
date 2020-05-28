@@ -2,7 +2,14 @@ import AsyncStorage from "@react-native-community/async-storage";
 import createDataContext from "./createDataContext";
 import trackerApi from "../api/tracker";
 
+import { BottomTabScreen } from "../../Routes"
+
 const authReducer = (state, action) => {
+  console.log("authreducer called");
+  console.log(action);
+  console.log(state);
+  
+  
   switch (action.type) {
     case "add_error":
       return { ...state, errorMessage: action.payload };
@@ -52,20 +59,13 @@ const signout = (dispatch) => {
     try {
       console.log('Signout called');
       
-      await AsyncStorage.setItem("token", null);
+      // await AsyncStorage.setItem("token", null);
       dispatch({
         type: "signout",
       });
       
-      let token = await AsyncStorage.getItem('token');
-      console.log('token: ');
-      console.log(token);
+      // let token = await AsyncStorage.getItem('token');
 
-      if (callback) {
-        callback();
-      }
-      
-      // console.log(response.data);
     } catch (err) {
       dispatch({
         type: "add_error",
@@ -78,5 +78,5 @@ const signout = (dispatch) => {
 export const { Provider, Context } = createDataContext(
   authReducer,
   { signup, signin, signout },
-  { token: null, errorMessage: "" }
+  { token: null, errorMessage: "" , isSignedIn: false}
 );
