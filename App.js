@@ -11,6 +11,8 @@ import {
   Context as AuthContext,
 } from "./src/context/AuthContext";
 
+import LoadingAuthScreen from "./src/screens/LoadingAuthScreen";
+
 const isSignedIn = false;
 const userToken = null;
 const GetToken = async () => {
@@ -29,9 +31,10 @@ const App = () => {
 
   const Stack = createStackNavigator();
   return (
-      <NavigationContainer>
-        {state.token ? <BottomTabScreen /> : <AuthStackScreen />}
-      </NavigationContainer>
+    <NavigationContainer>
+      <LoadingAuthScreen />
+      {state.token ? <BottomTabScreen /> : <AuthStackScreen />}
+    </NavigationContainer>
   );
 };
 

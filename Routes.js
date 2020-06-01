@@ -33,7 +33,7 @@ function TrackStackScreen() {
 const BottomTab = createBottomTabNavigator();
 function BottomTabScreen() {
   return (
-    <BottomTab.Navigator name="BottomStack" initialRouteName = "TrackCreate" >
+    <BottomTab.Navigator name="BottomStack" initialRouteName = "Track" >
       <BottomTab.Screen name="Track" component={TrackStackScreen} />
       <BottomTab.Screen name="TrackCreate" component={TrackCreateScreen} />
       <BottomTab.Screen name="Account" component={AccountScreen} />
