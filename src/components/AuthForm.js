@@ -1,13 +1,12 @@
-import React, {useState} from "react";
-import { View, StyleSheet } from "react-native";
-import { Text, Input, Button } from "react-native-elements";
+import React, { useState } from 'react';
+import { View, StyleSheet } from 'react-native';
+import { Text, Input, Button } from 'react-native-elements';
 
-import Spacer from "../components/Spacer";
+import Spacer from '../components/Spacer';
 
-
-const AuthForm = ({headerText, errorMessage, onsubmit, SubmitButtonText}) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+const AuthForm = ({ headerText, errorMessage, onsubmit, SubmitButtonText }) => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   return (
     <>
@@ -15,18 +14,18 @@ const AuthForm = ({headerText, errorMessage, onsubmit, SubmitButtonText}) => {
         <Text h3>{headerText}</Text>
       </Spacer>
       <Input
-        label="Email"
+        label='Email'
         value={email}
         onChangeText={setEmail}
-        autoCapitalize="none"
+        autoCapitalize='none'
         autoCorrect={false}
       />
       <Spacer />
       <Input
-        label="Password"
+        label='Password'
         value={password}
         onChangeText={setPassword}
-        autoCapitalize="none"
+        autoCapitalize='none'
         autoCorrect={false}
         secureTextEntry
       />
@@ -42,24 +41,23 @@ const AuthForm = ({headerText, errorMessage, onsubmit, SubmitButtonText}) => {
           }}
         />
       </Spacer>
-      
     </>
   );
 };
 
 const styles = StyleSheet.create({
-    errorMessage: {
-        color: "red",
-        marginLeft: 15,
-        fontSize: 16,
-        alignContent: "center",
-        width: "100%",
-      },
-      container: {
-        flex: 1,
-        justifyContent: "center",
-        marginBottom: 200,
-      },
+  errorMessage: {
+    color: 'red',
+    marginLeft: 15,
+    fontSize: 16,
+    alignContent: 'center',
+    width: '100%',
+  },
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    marginBottom: 200,
+  },
 });
 
 export default AuthForm;
